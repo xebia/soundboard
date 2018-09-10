@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Soundboard</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.3/dist/semantic.min.css" />
+  <script src="./shared.js"></script>
+</head>
+<body>
+  <div class="ui container">
+    <div class="ui vertical segment">
+      <button class="ui button" id="rhythm">Boem tjak!</button>
+    </div>
+  </div>
+  <script src="./scripts.js"></script>
+<script>
+  const sample = new RhythmSample();
+  document.getElementById('rhythm').addEventListener('click', function()  {
+    sample.play();
+  })
+</script>
+</body>
+</html>
