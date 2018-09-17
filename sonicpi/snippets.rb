@@ -29,12 +29,15 @@ end
 live_loop :arpeggio do
   # Comment and uncomment this the re-run to start/stop loop.
   # stop
+  
   # Comment or decomment this for a slow or faster feel.
   sync :tick
+  
   use_synth :tb303
   s = (ring :e3, :e3, :f3, :g3)
   
   # Cutoff values you can try
+  c_regular = rrand(50,80)
   c_schel = rrand(70, 90)
   c_hol = rrand(50, 70)
   
@@ -44,6 +47,6 @@ live_loop :arpeggio do
   
   # Note that the "tick" here is a built in thing, not a reference to :tick
   play_pattern_timed (scale s.tick, :minor_pentatonic).shuffle, 0.125,
-    amp: a_achtergrond, cutoff: rrand(50,80),
+    amp: a_achtergrond, cutoff: c_regular,
     res: 0.95, attack: 0.01, release: 0.05
 end
