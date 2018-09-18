@@ -24,3 +24,8 @@ live_loop :kick do
     sleep 0.25
   end
 end
+
+live_loop :amen do
+  sample :loop_amen, onset: pick, sustain: 0, release: 0.1
+  sleep 0.125
+end

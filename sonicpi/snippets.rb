@@ -2,6 +2,11 @@
 # Serge Beaumont
 # September 2018
 
+# Also see:
+# https://sonic-pi.net/#examples
+# https://aimxhaisse.com/aerodynamic-en.html
+# https://github.com/aimxhaisse/sonic-pies
+
 # Use some convenient timings for full until eighth notes.
 # 1    2     4      8
 # 1, 0.5, 0.25, 0.125
