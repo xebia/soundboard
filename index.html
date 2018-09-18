@@ -1,23 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Soundboard</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.3/dist/semantic.min.css" />
-  <script src="./shared.js"></script>
-</head>
-<body>
-  <div class="ui container">
-    <div class="ui vertical segment">
-      <button class="ui button" id="rhythm">Boem tjak!</button>
+  <head>
+    <meta charset="UTF-8">
+    <title>Soundboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.3/dist/semantic.min.css"/>
+    <script src="./shared.js"></script>
+  </head>
+  <body>
+    <div class="ui container">
+      <div class="ui vertical segment">
+        <div class="ui three column grid">
+          <div class="column">
+            <button class="ui button" id="rhythm">Boem tjak!</button>
+          </div>
+          <div class="column">
+            <button class="ui button" id="funk">Funk</button>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-  <script src="./scripts.js"></script>
-<script>
-  const sample = new RhythmSample();
-  document.getElementById('rhythm').addEventListener('click', function()  {
-    sample.play();
-  })
-</script>
-</body>
+    <script src="./scripts.js"></script>
+    <script>
+      const samples = {
+        rhythm: new RhythmSample(),
+        funk: new SingleSound('./sounds/funk.wav')
+      };
+
+      // Play sample with id when button is clicked
+      document.querySelectorAll('.button[id]').forEach(function (el) {
+        const sample = samples[el.id];
+        if (sample) {
+          el.addEventListener('click', () => sample.play());
+        } else {
+          console.warn('Sample "' + el.id + '" is not loaded');
+        }
+      });
+    </script>
+  </body>
 </html>

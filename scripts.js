@@ -1,4 +1,4 @@
-var RhythmSample = function() {
+var RhythmSample = function () {
   loadSounds(this, {
     kick: './sounds/kick.wav',
     snare: './sounds/snare.wav',
@@ -6,7 +6,7 @@ var RhythmSample = function() {
   });
 };
 
-RhythmSample.prototype.play = function() {
+RhythmSample.prototype.play = function () {
   // We'll start playing the rhythm 100 milliseconds from "now"
   var startTime = context.currentTime + 0.100;
   var tempo = 80; // BPM (beats per minute)
@@ -28,4 +28,14 @@ RhythmSample.prototype.play = function() {
       playSound(this.hihat, time + i * eighthNoteTime);
     }
   }
+};
+
+var SingleSound = function (url) {
+  loadSounds(this, {
+    sound: url,
+  });
+};
+
+SingleSound.prototype.play = function () {
+  playSound(this.sound, context.currentTime);
 };
