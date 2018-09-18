@@ -1,8 +1,20 @@
+// One single sound
+var SingleSound = function (url) {
+  loadSounds(this, {
+    sound: `../sounds/${url}`,
+  });
+};
+
+SingleSound.prototype.play = function () {
+  playSound(this.sound, context.currentTime);
+};
+
+// Two 4/4 bars with a rhythm
 var RhythmSample = function () {
   loadSounds(this, {
-    kick: './sounds/kick.wav',
-    snare: './sounds/snare.wav',
-    hihat: './sounds/hihat.wav'
+    kick: '../sounds/kick.wav',
+    snare: '../sounds/snare.wav',
+    hihat: '../sounds/hihat.wav'
   });
 };
 
@@ -28,14 +40,4 @@ RhythmSample.prototype.play = function () {
       playSound(this.hihat, time + i * eighthNoteTime);
     }
   }
-};
-
-var SingleSound = function (url) {
-  loadSounds(this, {
-    sound: url,
-  });
-};
-
-SingleSound.prototype.play = function () {
-  playSound(this.sound, context.currentTime);
 };
